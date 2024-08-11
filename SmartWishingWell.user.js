@@ -7,6 +7,10 @@
 // @grant        none
 // ==/UserScript==
 
+
+//If instead of using the most popular wish you want to wish for a specific item, change this variable to the item's name
+const OVERRIDE = "";
+
 let begin = false;
 let countCells = document.querySelectorAll('td:nth-child(3)');
 let prizeTrack = [[],[]];
@@ -39,4 +43,9 @@ for (let i = 0; i<prizeTrack[0].length; i++){
 }
 
 donateBox.value = 21;
-wishBox.value = prizeTrack[0][maxId];
+if (OVERRIDE == ""){
+    wishBox.value = prizeTrack[0][maxId];
+} else {
+    wishBox.value = OVERRIDE;
+}
+
