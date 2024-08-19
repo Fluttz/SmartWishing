@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         Smart Wishing Well Autofill
-// @version      1.1
+// @version      1.2
 // @description  Wish for the most popular wish
 // @author       Flutterz
 // @match        https://www.neopets.com/wishing.phtml*
@@ -57,5 +57,6 @@ if (wishesText[wishesText.length-1].innerText.includes("Wish Count")){
     button[0].onclick = function(){
         wishesMade++;
         wishesText[wishesText.length-1].innerText = "Wish Count: "+wishesMade;
+        if (wishesMade >= 7) button[0].style="display:none;";
     };
 }
